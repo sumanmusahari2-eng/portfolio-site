@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="light dark"/>
+<link rel="icon" href="data:,"/>
+<title>Suman — Website Developer | Portfolio</title>
+<meta name="description" content="Portfolio of Suman, website developer building e-commerce stores, payment gateways, top-up marketplaces and Telegram bots."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0c0e; --bg2:#121214; --surface:#17171a; --surface2:#1e1e22;
+  --line:#26262b; --text:#f5f3eb; --muted:#a8a59c; --muted2:#7a776e;
+  --yellow:#ffca00; --yellow-dark:#0c0c0e; --yellow-soft:rgba(255,202,0,.11);
+  --green:#22c55e; --radius:18px;
+  --font-head:"Sora",system-ui,sans-serif; --font-body:"Manrope",system-ui,sans-serif; --font-mono:"JetBrains Mono",monospace;
+}
+@media (prefers-color-scheme: light){
+  :root{ --bg:#f7f5ef; --bg2:#ffffff; --surface:#ffffff; --surface2:#f1eee3; --line:#e6e1d3; --text:#16150f; --muted:#5c594f; --muted2:#8a867b; --yellow-soft:rgba(201,154,0,.12); }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+@media(min-width:768px){.wrap{padding:0 32px}}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-head);font-weight:800;letter-spacing:-.02em;font-size:18px}
+.logo-mark{width:36px;height:36px;background:var(--yellow);color:#111;display:grid;place-items:center;font-weight:800;border-radius:9px;font-size:18px}
+.logo span small{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;line-height:1}
+.nav-links{display:none;gap:28px;font-size:14px;font-weight:600;color:var(--muted)}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--text);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:13px;font-weight:700}
+@media(min-width:860px){.nav-links{display:flex}}
+
+/* HERO */
+.hero{padding:56px 0 24px;position:relative;overflow:hidden}
+.hero-grid{display:grid;gap:36px}
+@media(min-width:960px){.hero-grid{grid-template-columns:1.08fr .92fr;align-items:center;gap:48px}.hero{padding:72px 0 36px}}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);padding:7px 12px;border-radius:999px;font-size:12.5px;font-weight:600}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(34,197,94,.18)}
+.hero h1{font-family:var(--font-head);font-size:clamp(38px,6vw,62px);line-height:.98;letter-spacing:-.03em;margin:20px 0 18px;font-weight:800}
+.hero h1 em{font-style:normal;color:var(--yellow);background:var(--yellow-soft);padding:0 8px;border-radius:6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero p.lead{font-size:17px;color:var(--muted);max-width:560px;margin:0}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:12px;font-weight:700;font-size:14px;border:1px solid var(--line)}
+.btn-primary{background:var(--yellow);color:#141310;border-color:var(--yellow)}
+.btn-ghost{background:var(--surface)}
+.btn:hover{transform:translateY(-1px)}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chip{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.02em;border:1px dashed var(--line);padding:7px 10px;border-radius:999px;color:var(--muted)}
+
+/* CODE / BROWSER CARD */
+.browser{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.28)}
+.browser-bar{display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid var(--line);background:var(--surface2)}
+.browser-bar i{width:10px;height:10px;border-radius:50%;background:#3a3a3f;display:block}
+.browser-bar i:nth-child(1){background:#ff5f57}.browser-bar i:nth-child(2){background:#febc2e}.browser-bar i:nth-child(3){background:#28c840}
+.url{margin-left:8px;flex:1;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-family:var(--font-mono);font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.code{padding:18px 18px 8px;font-family:var(--font-mono);font-size:13px;line-height:1.75;overflow:auto}
+.code .k{color:#ffca00}.code .s{color:#a3e635}.code .c{color:var(--muted2)}.code .f{color:#7dd3fc}
+.metrics{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--line)}
+.metric{padding:14px 16px;border-right:1px solid var(--line)}
+.metric:last-child{border-right:0}
+.metric b{font-family:var(--font-head);font-size:18px;display:block;line-height:1}
+.metric span{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+
+/* MARQUEE */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;overflow:hidden;white-space:nowrap;margin-top:36px}
+.marquee-track{display:inline-flex;gap:36px;font-family:var(--font-mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);animation:scroll 26s linear infinite}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+/* SECTIONS */
+.section{padding:64px 0}
+.section-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;margin-bottom:28px}
+.section-head h2{font-family:var(--font-head);font-size:clamp(28px,4vw,38px);letter-spacing:-.03em;line-height:1.05;margin:8px 0 0}
+.kicker{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px}
+.kicker::before{content:"";width:22px;height:2px;background:var(--yellow);display:inline-block}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filter{border:1px solid var(--line);background:var(--surface);padding:8px 14px;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;color:var(--muted)}
+.filter.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+
+/* PROJECTS */
+.projects{display:grid;gap:20px}
+@media(min-width:860px){.projects{grid-template-columns:1fr 1fr}.project.featured{grid-column:span 2}}
+.project{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.project.hidden{display:none}
+.project-visual{height:190px;position:relative;overflow:hidden;padding:18px;display:flex;flex-direction:column;justify-content:space-between}
+.project.featured .project-visual{height:220px}
+@media(min-width:860px){.project.featured{flex-direction:row}.project.featured .project-visual{height:auto;flex:0 0 46%}.project.featured .project-body{flex:1}}
+.v-ott{background:#0a0a0a;color:#fff;background-image:radial-gradient(circle at 85% 15%, rgba(255,202,0,.35), transparent 55%)}
+.v-meowji{background:#101828;color:#fff;background-image:radial-gradient(circle at 15% 20%, rgba(56,189,248,.35), transparent 50%),radial-gradient(circle at 90% 90%, rgba(255,202,0,.25), transparent 50%)}
+.v-gateway{background:#0f1a14;color:#fff;background-image:radial-gradient(circle at 80% 20%, rgba(34,197,94,.35), transparent 55%)}
+.v-avardo{background:#17111f;color:#fff;background-image:radial-gradient(circle at 20% 15%, rgba(168,85,247,.32), transparent 55%)}
+.v-smm{background:#121a2e;color:#fff;background-image:radial-gradient(circle at 85% 85%, rgba(59,130,246,.35), transparent 55%)}
+.v-bot{background:#0e1e26;color:#fff;background-image:radial-gradient(circle at 20% 85%, rgba(14,165,233,.4), transparent 55%)}
+.v-mlbb{background:#1a1210;color:#fff;background-image:radial-gradient(circle at 85% 15%, rgba(249,115,22,.35), transparent 55%)}
+.v-news{background:#111827;color:#fff;background-image:radial-gradient(circle at 15% 15%, rgba(239,68,68,.35), transparent 55%)}
+.visual-top{display:flex;justify-content:space-between;align-items:flex-start}
+.visual-domain{font-family:var(--font-mono);font-size:12px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);padding:6px 9px;border-radius:999px;backdrop-filter:blur(6px)}
+.live{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;display:inline-flex;gap:6px;align-items:center}
+.live::before{content:"";width:7px;height:7px;border-radius:50%;background:#22c55e}
+.visual-title{font-family:var(--font-head);font-size:28px;line-height:1;letter-spacing:-.02em;font-weight:800}
+.visual-sub{font-size:13px;opacity:.75;margin-top:6px;max-width:340px}
+.mini-ui{display:flex;gap:8px;margin-top:14px}
+.mini-ui span{height:28px;flex:1;border-radius:7px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.12)}
+.mini-ui span:first-child{background:var(--yellow);border-color:var(--yellow);flex:.7}
+.project-body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.project-body h3{margin:0;font-family:var(--font-head);font-size:20px;letter-spacing:-.02em}
+.project-body p{margin:0;color:var(--muted);font-size:14.5px}
+.feats{list-style:none;margin:2px 0 0;padding:0;display:grid;gap:7px}
+.feats li{display:flex;gap:9px;font-size:13.5px;color:var(--muted)}
+.feats li::before{content:"✓";color:#111;background:var(--yellow);width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;flex:0 0 18px;margin-top:1px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.tag{font-family:var(--font-mono);font-size:11px;padding:5px 8px;border-radius:999px;background:var(--surface2);border:1px solid var(--line);color:var(--muted)}
+.project-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:14px;margin-top:4px}
+.visit{font-weight:800;font-size:13.5px;display:inline-flex;gap:6px;align-items:center}
+.visit:hover{color:var(--yellow)}
+.year{font-family:var(--font-mono);font-size:12px;color:var(--muted2)}
+
+/* SERVICES */
+.services{display:grid;gap:16px}
+@media(min-width:760px){.services{grid-template-columns:1fr 1fr}}
+@media(min-width:1020px){.services{grid-template-columns:repeat(4,1fr)}}
+.service{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.service-icon{width:42px;height:42px;border-radius:10px;background:var(--yellow-soft);border:1px solid var(--line);display:grid;place-items:center;font-size:19px;margin-bottom:14px}
+.service h3{margin:0 0 8px;font-family:var(--font-head);font-size:16px}
+.service p{margin:0;color:var(--muted);font-size:14px}
+
+/* STACK + ABOUT */
+.split{display:grid;gap:20px}
+@media(min-width:900px){.split{grid-template-columns:1.15fr .85fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.panel h3{margin:0 0 6px;font-family:var(--font-head);font-size:20px}
+.panel p{color:var(--muted);font-size:14.5px}
+.stack-group{margin-top:18px}
+.stack-group h4{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{padding:8px 11px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);font-size:13px;font-weight:600}
+.timeline{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:0}
+.timeline li{display:grid;grid-template-columns:74px 1fr;gap:14px;padding:13px 0;border-top:1px solid var(--line)}
+.timeline li:first-child{border-top:0}
+.timeline time{font-family:var(--font-mono);font-size:12px;color:var(--muted);padding-top:2px}
+.timeline b{font-size:14.5px;display:block}
+.timeline span{font-size:13.5px;color:var(--muted)}
+
+/* CTA */
+.cta{background:#111110;color:#f5f3eb;border-radius:20px;padding:32px 24px;position:relative;overflow:hidden;border:1px solid var(--line)}
+@media(prefers-color-scheme:light){.cta{background:#16150f}}
+.cta::after{content:"";position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;background:var(--yellow);opacity:.16}
+.cta h2{font-family:var(--font-head);font-size:clamp(26px,4vw,36px);letter-spacing:-.02em;line-height:1.1;margin:0 0 10px;max-width:620px;position:relative;z-index:1}
+.cta p{color:#c9c6bb;max-width:560px;position:relative;z-index:1}
+.cta .hero-actions{position:relative;z-index:1}
+footer{padding:28px 0 36px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.footer-inner{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.reveal{opacity:1;transform:none}
+.reveal.visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{transition:none}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top"><span class="logo-mark">S</span><span>Suman<small>Website Developer</small></span></a>
+    <nav class="nav-links"><a href="#work">Work</a><a href="#services">Services</a><a href="#stack">Stack</a><a href="#about">About</a></nav>
+    <a class="nav-cta" href="#contact">Start a project →</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="badge"><span class="dot"></span> Available for new projects — stores, gateways &amp; bots</span>
+        <h1>I build stores &amp; payment systems that <em>actually sell.</em></h1>
+        <p class="lead">I'm Suman, a website developer who designs, builds and runs live e-commerce products — from OTT subscription stores and game top-up marketplaces to UPI payment gateways and Telegram bots. Not demos. Real products, with real customers and real orders.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#work">See my live work ↓</a>
+          <a class="btn btn-ghost" href="#contact">Discuss your idea</a>
+        </div>
+        <div class="hero-meta">
+          <span class="chip">🌍 Selling worldwide — USA, UAE &amp; beyond</span>
+          <span class="chip">43 currencies supported</span>
+          <span class="chip">UPI · USDT · Wallet payments</span>
+        </div>
+      </div>
+
+      <div class="browser" aria-label="Developer profile preview">
+        <div class="browser-bar"><i></i><i></i><i></i><span class="url">suman.dev / portfolio — live projects</span></div>
+        <div class="code">
+          <div><span class="c">// what I ship</span></div>
+          <div><span class="k">const</span> developer = {</div>
+          <div>&nbsp;&nbsp;name: <span class="s">'Suman'</span>,</div>
+          <div>&nbsp;&nbsp;role: <span class="s">'Website Developer'</span>,</div>
+          <div>&nbsp;&nbsp;builds: [<span class="s">'E-commerce'</span>, <span class="s">'Payments'</span>,</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="s">'Top-up Stores'</span>, <span class="s">'Bots'</span>, <span class="s">'SEO'</span>],</div>
+          <div>&nbsp;&nbsp;<span class="f">ship</span>: () =&gt; <span class="s">'live, not just localhost'</span></div>
+          <div>};</div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><b>8+</b><span>Live products</span></div>
+          <div class="metric"><b>47,653+</b><span>Orders delivered*</span></div>
+          <div class="metric"><b>6,496+</b><span>Happy customers*</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="marquee" aria-hidden="true"><div class="marquee-track"><span>E-commerce Stores</span><span>✦</span><span>Payment Gateways</span><span>✦</span><span>Game Top-Ups</span><span>✦</span><span>Telegram Bots</span><span>✦</span><span>Reseller APIs</span><span>✦</span><span>SEO &amp; Growth</span><span>✦</span><span>E-commerce Stores</span><span>✦</span><span>Payment Gateways</span><span>✦</span><span>Game Top-Ups</span><span>✦</span><span>Telegram Bots</span><span>✦</span><span>Reseller APIs</span><span>✦</span><span>SEO &amp; Growth</span><span>✦</span></div></div>
+    <div class="wrap"><p style="font-size:12px;color:var(--muted2);margin:10px 0 0">* Order &amp; customer counts from OTT Bazaar, as reported by the store.</p></div>
+  </section>
+
+  <!-- WORK -->
+  <section class="section" id="work" style="padding-top:36px">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="kicker">Selected Work</div><h2>Real projects, live on the internet</h2></div>
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="store">Stores</button>
+          <button class="filter" data-filter="payments">Payments</button>
+          <button class="filter" data-filter="bots">Bots &amp; Media</button>
+        </div>
+      </div>
+
+      <div class="projects" id="projects">
+        <!-- OTT BAZAAR -->
+        <article class="project featured reveal" data-cat="store">
+          <div class="project-visual v-ott">
+            <div class="visual-top"><span class="visual-domain">ottbazaar.store</span><span class="live">Live</span></div>
+            <div><div class="visual-title">OTT Bazaar</div><div class="visual-sub">Global OTT subscription store — YouTube Premium, Spotify, Netflix, ChatGPT &amp; more</div><div class="mini-ui"><span></span><span></span><span></span><span></span></div></div>
+          </div>
+          <div class="project-body">
+            <h3>OTT Bazaar — Global Subscription Store</h3>
+            <p>A full e-commerce store selling digital subscriptions worldwide. Built on PHP with server-side rendering for SEO, region-aware pricing, and a black + gold storefront designed for fast buying on phones.</p>
+            <ul class="feats"><li>43-currency selector with region-based default (India → ₹, rest of world → $)</li><li>SEO-ready SSR pages, sitemaps, structured data &amp; real 404 handling</li><li>Live stats, product variants, wallet &amp; WhatsApp checkout flows</li></ul>
+            <div class="tags"><span class="tag">PHP</span><span class="tag">E-commerce</span><span class="tag">SEO / SSR</span><span class="tag">Multi-currency</span></div>
+            <div class="project-foot"><a class="visit" href="https://ottbazaar.store" target="_blank" rel="noopener">Visit live store ↗</a><span class="year">2025 — Present</span></div>
+          </div>
+        </article>
+
+        <!-- MEOWJI -->
+        <article class="project reveal" data-cat="store">
+          <div class="project-visual v-meowji">
+            <div class="visual-top"><span class="visual-domain">meowjiofficial.bond</span><span class="live">Live</span></div>
+            <div><div class="visual-title">Meowji Official</div><div class="visual-sub">Game top-up marketplace</div></div>
+          </div>
+          <div class="project-body">
+            <h3>Meowji Official — Top-Up Marketplace</h3>
+            <p>Marketplace for in-game top-ups — MLBB, BGMI, Honor of Kings and Clash of Clans — with its own wallet currency and reseller system.</p>
+            <ul class="feats"><li>ML Coins wallet (1 coin = ₹1), INR / USD pricing</li><li>Reseller API v1 with wallet-debited orders</li><li>Game ID checker &amp; auto / manual fulfilment</li></ul>
+            <div class="tags"><span class="tag">Marketplace</span><span class="tag">Wallet</span><span class="tag">Reseller API</span></div>
+            <div class="project-foot"><a class="visit" href="https://www.meowjiofficial.bond" target="_blank" rel="noopener">Visit site ↗</a><span class="year">2025 — Present</span></div>
+          </div>
+        </article>
+
+        <!-- XTRAGATEWAY -->
+        <article class="project reveal" data-cat="payments">
+          <div class="project-visual v-gateway">
+            <div class="visual-top"><span class="visual-domain">xtragateway.bond</span><span class="live">Live</span></div>
+            <div><div class="visual-title">XtraGateway</div><div class="visual-sub">UPI payment gateway — PayIndia engine</div></div>
+          </div>
+          <div class="project-body">
+            <h3>XtraGateway — Payment Gateway</h3>
+            <p>A UPI payment gateway that powers checkout across my stores — create orders, collect via UPI, and confirm payments automatically.</p>
+            <ul class="feats"><li>UPI checkout integrated into live stores</li><li>Merchant order flow with amount + UTR matching</li><li>Shared gateway for multiple storefronts</li></ul>
+            <div class="tags"><span class="tag">Payments</span><span class="tag">UPI</span><span class="tag">Gateway</span></div>
+            <div class="project-foot"><a class="visit" href="https://xtragateway.bond" target="_blank" rel="noopener">Visit gateway ↗</a><span class="year">2026</span></div>
+          </div>
+        </article>
+
+        <!-- AVARDO -->
+        <article class="project reveal" data-cat="store">
+          <div class="project-visual v-avardo">
+            <div class="visual-top"><span class="visual-domain">avardoofficial.in</span><span class="live">Live</span></div>
+            <div><div class="visual-title">Avardo Official</div><div class="visual-sub">Game top-up store with auto-fulfilment</div></div>
+          </div>
+          <div class="project-body">
+            <h3>Avardo Official — Top-Up Store</h3>
+            <p>A complete top-up store on its own backend &amp; database, with a support chatbot, floating WhatsApp help, and automated delivery for MLBB packs.</p>
+            <ul class="feats"><li>Busan auto-fulfilment for MLBB India packs</li><li>Support bot + WhatsApp handoff with image attach</li><li>Coupons, leaderboard, refunds &amp; reseller pricing</li></ul>
+            <div class="tags"><span class="tag">Node.js</span><span class="tag">Neon Postgres</span><span class="tag">Automation</span></div>
+            <div class="project-foot"><a class="visit" href="https://www.avardoofficial.in" target="_blank" rel="noopener">Visit store ↗</a><span class="year">2025 — Present</span></div>
+          </div>
+        </article>
+
+        <!-- SOCIALXSMM -->
+        <article class="project reveal" data-cat="store">
+          <div class="project-visual v-smm">
+            <div class="visual-top"><span class="visual-domain">socialxsmm.com</span><span class="live">Live</span></div>
+            <div><div class="visual-title">SocialXSMM</div><div class="visual-sub">SMM panel + OTT subscriptions</div></div>
+          </div>
+          <div class="project-body">
+            <h3>SocialXSMM — SMM Panel &amp; OTT</h3>
+            <p>SMM panel and subscription store selling YouTube Premium, Spotify and ChatGPT — aimed at customers in the USA, UAE and other international markets.</p>
+            <ul class="feats"><li>Panel-style ordering for social services</li><li>OTT subscriptions alongside SMM</li><li>Built for higher-value foreign markets</li></ul>
+            <div class="tags"><span class="tag">SMM Panel</span><span class="tag">Subscriptions</span><span class="tag">Global</span></div>
+            <div class="project-foot"><a class="visit" href="https://socialxsmm.com" target="_blank" rel="noopener">Visit site ↗</a><span class="year">2025 — Present</span></div>
+          </div>
+        </article>
+
+        <!-- MEOWJIPAY -->
+        <article class="project reveal" data-cat="payments">
+          <div class="project-visual v-gateway" style="background:#141a2e;background-image:radial-gradient(circle at 20% 20%, rgba(99,102,241,.35), transparent 55%)">
+            <div class="visual-top"><span class="visual-domain">MeowjiPay</span><span class="live" style="color:#fbbf24">In Build</span></div>
+            <div><div class="visual-title">MeowjiPay</div><div class="visual-sub">Next-gen checkout — UPI &amp; USDT</div></div>
+          </div>
+          <div class="project-body">
+            <h3>MeowjiPay — Payment Product</h3>
+            <p>My own payment gateway product in development — merchant signup, UPI / USDT checkout, built on Vercel + Neon Postgres with all core tables live.</p>
+            <ul class="feats"><li>Merchant-first checkout experience</li><li>UPI + USDT (BEP20 / TRON) collection</li><li>Designed from running real stores first</li></ul>
+            <div class="tags"><span class="tag">Fintech</span><span class="tag">Vercel</span><span class="tag">Neon</span><span class="tag">USDT</span></div>
+            <div class="project-foot"><span style="font-size:13px;color:var(--muted)">Phase 1 in progress</span><span class="year">2026</span></div>
+          </div>
+        </article>
+
+        <!-- SMILE BOT -->
+        <article class="project reveal" data-cat="bots">
+          <div class="project-visual v-bot">
+            <div class="visual-top"><span class="visual-domain">@mlbbsmileone_bot</span><span class="live">Live</span></div>
+            <div><div class="visual-title">Smile Coins Bot</div><div class="visual-sub">Telegram bot for MLBB Smile Coins</div></div>
+          </div>
+          <div class="project-body">
+            <h3>MLBB Smile Coins — Telegram Bot</h3>
+            <p>A Telegram storefront bot for MLBB Smile Coins with region-gated packs — Brazil (BRL) live, Philippines gated — hosted with a live webhook.</p>
+            <ul class="feats"><li>Webhook-based bot on PythonAnywhere</li><li>Multi-region pack catalogues</li><li>Built for in-chat buying, no website needed</li></ul>
+            <div class="tags"><span class="tag">Telegram Bot</span><span class="tag">Python</span><span class="tag">Webhooks</span></div>
+            <div class="project-foot"><a class="visit" href="https://t.me/mlbbsmileone_bot" target="_blank" rel="noopener">Open bot ↗</a><span class="year">2026</span></div>
+          </div>
+        </article>
+
+        <!-- MLBB STORE + NEWS -->
+        <article class="project reveal" data-cat="bots">
+          <div class="project-visual v-news">
+            <div class="visual-top"><span class="visual-domain">@realvq · mlbbstore.in</span><span class="live">Live</span></div>
+            <div><div class="visual-title">Meowji News</div><div class="visual-sub">MLBB esports news agency</div></div>
+          </div>
+          <div class="project-body">
+            <h3>MLBB Esports News — @realvq</h3>
+            <p>A daily MLBB esports news page that funnels fans into top-up sales — news graphics, match coverage and a companion store at mlbbstore.in.</p>
+            <ul class="feats"><li>Daily news graphics in a signature talk style</li><li>Content → commerce funnel for top-ups</li><li>Also runs Obsidian Boosting rank-boost service</li></ul>
+            <div class="tags"><span class="tag">Content</span><span class="tag">Esports</span><span class="tag">Growth</span></div>
+            <div class="project-foot"><a class="visit" href="https://mlbbstore.in" target="_blank" rel="noopener">Visit mlbbstore.in ↗</a><span class="year">2025 — Present</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services" style="padding-top:8px">
+    <div class="wrap">
+      <div class="section-head"><div><div class="kicker">What I Do</div><h2>Services for sellers &amp; creators</h2></div></div>
+      <div class="services">
+        <div class="service reveal"><div class="service-icon">🛍️</div><h3>E-commerce Stores</h3><p>Complete online stores for digital products — catalogues, variants, wallets, coupons, orders and admin panels that are easy to run daily.</p></div>
+        <div class="service reveal"><div class="service-icon">💳</div><h3>Payment Integration</h3><p>UPI gateways, USDT crypto checkout, manual / WhatsApp payment flows and automatic confirmation — so you get paid without chasing screenshots.</p></div>
+        <div class="service reveal"><div class="service-icon">🤖</div><h3>Bots &amp; Automation</h3><p>Telegram bots, support chatbots, auto-fulfilment pipelines and supplier sync — the boring work handled automatically, 24/7.</p></div>
+        <div class="service reveal"><div class="service-icon">🔍</div><h3>SEO &amp; Growth</h3><p>Server-rendered pages, sitemaps, structured data and content funnels that bring buyers from Google and social — not just a pretty homepage.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK + ABOUT -->
+  <section class="section" id="stack" style="padding-top:8px">
+    <div class="wrap split">
+      <div class="panel reveal">
+        <div class="kicker">Toolbox</div><h3 style="margin-top:8px">Tech I build with</h3>
+        <p>Chosen for speed, low cost and reliability — the same stack that keeps multiple live stores running every day.</p>
+        <div class="stack-group"><h4>Frontend</h4><div class="pills"><span class="pill">HTML / CSS / JavaScript</span><span class="pill">Responsive Design</span><span class="pill">SSR for SEO</span></div></div>
+        <div class="stack-group"><h4>Backend &amp; Data</h4><div class="pills"><span class="pill">Node.js</span><span class="pill">PHP</span><span class="pill">Python</span><span class="pill">PostgreSQL · Neon</span><span class="pill">REST APIs</span></div></div>
+        <div class="stack-group"><h4>Hosting &amp; Infra</h4><div class="pills"><span class="pill">Render</span><span class="pill">Vercel</span><span class="pill">Cloudflare</span><span class="pill">cPanel Hosting</span><span class="pill">Telegram Webhooks</span></div></div>
+        <div class="stack-group"><h4>Payments</h4><div class="pills"><span class="pill">UPI Gateways</span><span class="pill">USDT · BEP20 · TRON</span><span class="pill">Wallets &amp; Reseller APIs</span></div></div>
+      </div>
+
+      <div class="panel reveal" id="about">
+        <div class="kicker">Journey</div><h3 style="margin-top:8px">Builder, operator, seller — in that order</h3>
+        <p>I don't just hand over websites. I run the stores I build, fulfil the orders, handle support and watch the numbers — so every feature I ship is tested by real customers.</p>
+        <ul class="timeline">
+          <li><time>2025</time><div><b>First stores go live</b><span>SocialXSMM and Meowji Official launch — SMM, OTT and game top-ups.</span></div></li>
+          <li><time>Oct 2025</time><div><b>OTT Bazaar goes global</b><span>43 currencies, region-based pricing and a full SEO rebuild.</span></div></li>
+          <li><time>2026</time><div><b>Payments become the product</b><span>XtraGateway powers UPI checkout; MeowjiPay starts as a standalone gateway.</span></div></li>
+          <li><time>Now</time><div><b>Building for clients too</b><span>Same stack, same care — now available for your store or idea.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta reveal">
+        <div class="kicker" style="color:#a8a59c">Got an idea?</div>
+        <h2>Want a store like these — built, live, and selling?</h2>
+        <p>Tell me what you want to sell — subscriptions, top-ups, digital products or services — and I'll build you the same kind of working system behind the projects above: store, payments and automation included.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://www.avardoofficial.in" target="_blank" rel="noopener">See a live store in action ↗</a>
+          <a class="btn" href="#work" style="background:transparent;color:#f5f3eb;border-color:#3a3a36">Browse all projects</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© 2026 Suman — Website Developer. Built &amp; run by me.</span>
+    <span style="font-family:var(--font-mono);font-size:12px">ottbazaar.store · meowjiofficial.bond · avardoofficial.in · socialxsmm.com</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Project filters
+  var btns=document.querySelectorAll('.filter');
+  var cards=document.querySelectorAll('.project');
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      btns.forEach(function(x){x.classList.remove('active')});
+      b.classList.add('active');
+      var f=b.getAttribute('data-filter');
+      cards.forEach(function(c){
+        var show=(f==='all'||c.getAttribute('data-cat')===f);
+        c.classList.toggle('hidden',!show);
+        if(show){c.classList.add('visible')}
+      });
+    });
+  });
+  // Reveal on scroll
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} });
+    },{threshold:.08});
+    els.forEach(function(el){io.observe(el)});
+  } else { els.forEach(function(el){el.classList.add('visible')}); }
+})();
+</script>
+</body>
+</html>
